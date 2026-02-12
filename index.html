@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ava's Valentine Puzzle!</title>
+    <meta name="description" content="Upload a photo and solve a 3×3 sliding puzzle." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="header">
+        <div class="badge">Ava's Valentine Puzzle!</div>
+        <h1>Made with love.</h1>
+      </header>
+
+      <section class="panel">
+        <div class="boardWrap">
+          <div class="boardTop">
+            <div class="solved" id="solved" hidden>
+              <div class="solvedTitle">You solved it!</div>
+              <div class="solvedSub">Happy Valentine's Day ♥</div>
+            </div>
+          </div>
+
+          <div class="stage">
+            <div id="board" class="board" role="application" aria-label="3 by 3 sliding puzzle"></div>
+            <div id="preview" class="preview" hidden aria-label="Image preview"></div>
+          </div>
+
+          <div class="controls">
+            <label class="file">
+              <input id="fileInput" type="file" accept="image/*" />
+              <span class="fileBtn">Upload a picture</span>
+            </label>
+            <button id="shuffleBtn" class="btn primary" disabled>Shuffle</button>
+            <button id="resetBtn" class="btn" disabled>Reset</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="./app.js" defer></script>
+  </body>
+</html>
+
