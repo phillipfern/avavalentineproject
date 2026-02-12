@@ -270,63 +270,81 @@ h1{
 /* Mobile optimizations */
 @media (max-width: 768px) {
   .page{
-    padding:16px 0 24px;
+    padding:12px 0 20px;
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
   }
   
   .header{
-    margin-bottom:12px;
+    margin-bottom:10px;
+    width:100%;
   }
   
   .badge{
-    padding:6px 10px;
-    font-size:13px;
+    padding:5px 9px;
+    font-size:12px;
   }
   
   h1{
-    margin:10px 0 6px;
-    font-size: clamp(24px, 6vw, 32px);
+    margin:8px 0 4px;
+    font-size: clamp(20px, 5.5vw, 28px);
   }
   
   .panel{
-    margin-top:12px;
+    margin-top:10px;
+    width:100%;
+    display:flex;
+    justify-content:center;
   }
   
   .boardWrap{
-    padding:12px;
+    padding:10px;
     min-height: auto;
+    width:fit-content;
+    margin:0 auto;
   }
   
   .boardTop{
-    margin-bottom:8px;
+    margin-bottom:6px;
+    min-height:32px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
   }
   
   .board{
-    width:min(85vw, 400px);
-    gap: 8px;
-    padding: 8px;
+    width:min(82vw, 360px);
+    gap: 6px;
+    padding: 6px;
+    margin:0 auto;
   }
   
   .controls{
-    gap:8px;
-    margin-top:12px;
+    gap:6px;
+    margin-top:10px;
     flex-wrap:wrap;
+    justify-content:center;
+    width:100%;
   }
   
   .fileBtn,
   .btn{
-    padding:10px 16px;
-    font-size:13px;
+    padding:9px 14px;
+    font-size:12px;
   }
   
   .solved{
-    padding:8px 10px;
+    padding:6px 8px;
   }
   
   .solvedTitle{
-    font-size:16px;
+    font-size:14px;
   }
   
   .solvedSub{
-    font-size:11px;
+    font-size:10px;
   }
 }
