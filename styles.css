@@ -269,9 +269,14 @@ h1{
 
 /* Mobile optimizations */
 @media (max-width: 768px) {
+  html, body{
+    min-height:100vh;
+  }
+  
   .page{
-    padding:12px 0 20px;
+    padding:20px 12px;
     width:100%;
+    min-height:100vh;
     display:flex;
     flex-direction:column;
     align-items:center;
@@ -279,7 +284,7 @@ h1{
   }
   
   .header{
-    margin-bottom:10px;
+    margin-bottom:20px;
     width:100%;
   }
   
@@ -289,26 +294,26 @@ h1{
   }
   
   h1{
-    margin:8px 0 4px;
+    margin:12px 0 8px;
     font-size: clamp(20px, 5.5vw, 28px);
   }
   
   .panel{
-    margin-top:10px;
+    margin-top:20px;
     width:100%;
     display:flex;
     justify-content:center;
   }
   
   .boardWrap{
-    padding:10px;
+    padding:16px;
     min-height: auto;
     width:fit-content;
     margin:0 auto;
   }
   
   .boardTop{
-    margin-bottom:6px;
+    margin-bottom:12px;
     min-height:32px;
     display:flex;
     justify-content:center;
@@ -323,8 +328,8 @@ h1{
   }
   
   .controls{
-    gap:6px;
-    margin-top:10px;
+    gap:8px;
+    margin-top:16px;
     flex-wrap:wrap;
     justify-content:center;
     width:100%;
