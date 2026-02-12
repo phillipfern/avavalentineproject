@@ -36,6 +36,45 @@ function init() {
     render();
   });
 
+  // Handle clipboard paste
+  document.addEventListener("paste", async (e) => {
+    const items = e.clipboardData?.items;
+    if (!items) return;
+
+    for (let i = 0; i < items.length; i++) {
+      const item = items[i];
+      if (item.type.indexOf("image") !== -1) {
+        e.preventDefault();
+        const file = item.getAsFile();
+        if (file) {
+          await processImageFile(file);
+        }
+        break;
+      }
+    }
+  });
+
+  // Handle paste button click (programmatic clipboard access)
+  els.fileBtn.addEventListener("click", async (e) => {
+    // If clicking the button, try to read from clipboard
+    try {
+      const clipboardItems = await navigator.clipboard.read();
+      for (const clipboardItem of clipboardItems) {
+        for (const type of clipboardItem.types) {
+          if (type.startsWith("image/")) {
+            const blob = await clipboardItem.getType(type);
+            const file = new File([blob], "pasted-image.png", { type });
+            await processImageFile(file);
+            return;
+          }
+        }
+      }
+    } catch (err) {
+      // Clipboard API not available or user denied permission
+      // Fall back to file input
+    }
+  });
+
   // keyboard accessibility: arrow keys move blank by sliding a neighboring tile into it
   window.addEventListener("keydown", (e) => {
     if (!imageUrl) return;
@@ -69,8 +108,7 @@ function resetToSolved() {
   els.solved.hidden = true;
 }
 
-async function onPickFile() {
-  const file = els.fileInput.files?.[0];
+async function processImageFile(file) {
   if (!file) return;
 
   els.solved.hidden = true;
@@ -90,6 +128,12 @@ async function onPickFile() {
     els.shuffleBtn.disabled = true;
     els.resetBtn.disabled = true;
   }
+}
+
+async function onPickFile() {
+  const file = els.fileInput.files?.[0];
+  if (!file) return;
+  await processImageFile(file);
 }
 
 function render() {
